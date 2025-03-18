@@ -524,7 +524,7 @@ mod tests {
 
             let outcomes = futures::future::join_all(future_probes).await;
             for outcome in outcomes {
-                assert_eq!(outcome.status, ProbeStatus::Occupied);
+                assert!(matches!(outcome.status, ProbeStatus::Occupied(_)));
             }
 
             let future_probes: Vec<_> = (128..=255)
