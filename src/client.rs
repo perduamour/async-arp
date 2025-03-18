@@ -247,7 +247,7 @@ impl Client {
         match self.request(input).await {
             Ok(response) => {
                 let status = match response.response_result {
-                    Ok(_) => ProbeStatus::Occupied,
+                    Ok(arp) => ProbeStatus::Occupied(arp.sender_hw_addr),
                     Err(_) => ProbeStatus::Free,
                 };
                 Ok(ProbeOutcome::new(status, input.target_ip))

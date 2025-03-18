@@ -40,7 +40,7 @@ impl ProbeInputBuilder {
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
 pub enum ProbeStatus {
     Free,
-    Occupied,
+    Occupied(MacAddr),
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
